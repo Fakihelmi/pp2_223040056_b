@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dao.KaryawanMapper">
+    <select id="getAllKaryawan" resultType="model.Karyawan">
+        SELECT * FROM karyawan;
+    </select>
+
+    <insert id="addKaryawan">
+        INSERT INTO karyawan (nama, jabatan, gaji, tanggal_masuk)
+        VALUES (#{nama}, #{jabatan}, #{gaji}, #{tanggalMasuk});
+    </insert>
+
+    <update id="updateKaryawan">
+        UPDATE karyawan
+        SET nama = #{nama}, jabatan = #{jabatan}, gaji = #{gaji}, tanggal_masuk = #{tanggalMasuk}
+        WHERE id_karyawan = #{idKaryawan};
+    </update>
+
+    <delete id="deleteKaryawan">
+        DELETE FROM karyawan WHERE id_karyawan = #{idKaryawan};
+    </delete>
+</mapper>
